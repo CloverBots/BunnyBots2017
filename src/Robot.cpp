@@ -6,16 +6,20 @@
 #include <LiveWindow/LiveWindow.h>
 #include <SmartDashboard/SendableChooser.h>
 #include <SmartDashboard/SmartDashboard.h>
-
+#include "Commands/BucketAuto.h"
 #include "CommandBase.h"
 
 class Robot: public frc::IterativeRobot {
 public:
 	Compressor *c = new Compressor(0);
 	void RobotInit() override {
-		//chooser.AddDefault("Default Auto", new ExampleCommand());
+		CommandBase::Init();
+		c->Start();
+		c->SetClosedLoopControl(true);
+		chooser.AddDefault("Default Auto", new BucketAuto());
 		// chooser.AddObject("My Auto", new MyAutoCommand());
 		frc::SmartDashboard::PutData("Auto Modes", &chooser);
+		frc::SmartDashboard::PutNumber("Compressor", c->GetCompressorCurrent());
 	}
 
 	/**
@@ -24,7 +28,6 @@ public:
 	 * the robot is disabled.
 	 */
 	void DisabledInit() override {
-		c->Stop();
 	}
 
 	void DisabledPeriodic() override {
@@ -43,7 +46,7 @@ public:
 	 * to the if-else structure below with additional strings & commands.
 	 */
 	void AutonomousInit() override {
-		c->Start();
+		;
 		/* std::string autoSelected = frc::SmartDashboard::GetString("Auto Selector", "Default");
 		if (autoSelected == "My Auto") {
 			autonomousCommand.reset(new MyAutoCommand());
@@ -64,7 +67,7 @@ public:
 	}
 
 	void TeleopInit() override {
-		c->Start();
+
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
@@ -75,6 +78,7 @@ public:
 	}
 
 	void TeleopPeriodic() override {
+		frc::SmartDashboard::PutNumber("Compressor", c->GetCompressorCurrent());
 		frc::Scheduler::GetInstance()->Run();
 	}
 

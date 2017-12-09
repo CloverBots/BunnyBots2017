@@ -31,7 +31,7 @@ void AlignWithTape::Execute()
 	switch (m_alignMode)
 	{
 	case AlignMode::ROTATE:
-		//std::cout << m_alignFrames << std::endl;
+		std::cout << m_alignFrames << std::endl;
 		m_throttle = 0;
 
 		if (CommandBase::oi->GetContours().size() >= 2)
@@ -65,7 +65,8 @@ void AlignWithTape::Execute()
 		//std::cout << "Aligning\n";
 		if (CommandBase::oi->GetContours().size() >= 2)
 		{
-			m_throttle = fmax(fmax(OI::CAMERA_Y_RES - center.y, 0) / (float)OI::CAMERA_Y_RES * m_MAX_THROTTLE, m_MIN_THROTTLE);
+			m_throttle = .5;
+			//m_throttle = fmax(fmax(OI::CAMERA_Y_RES - center.y, 0) / (float)OI::CAMERA_Y_RES * m_MAX_THROTTLE, m_MIN_THROTTLE);
 			m_rotation = fmax(fmin((m_SENSITIVITY_X * ((float)center.x / (float)OI::CAMERA_X_RES)), m_MAX_ROTATION), -m_MAX_ROTATION);
 
 			m_framesLost = 0;
@@ -79,16 +80,19 @@ void AlignWithTape::Execute()
 
 	CommandBase::driveSubsystem->Drive(
 			m_throttle,
+			//0,
 			m_rotation);
 
 	m_frameCount++;
 
-	std::cout << CommandBase::oi->GetContours().size() << std::endl;
+	//std::cout << CommandBase::oi->GetContours().size() << std::endl;
+	std::cout << m_rotation << std::endl;
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool AlignWithTape::IsFinished()
 {
+	//return false;
 	return m_frameCount > m_approachFrames || m_framesLost > m_TARGET_LOST_TIMEOUT;
 }
 

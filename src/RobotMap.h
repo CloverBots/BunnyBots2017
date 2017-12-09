@@ -22,12 +22,12 @@ class RobotMap
 {
 public:
 	const static unsigned int
-		Front_Right_Motor = 0,
-		Front_Left_Motor = 1,
-		Middle_Right_Motor = 2,
-		Middle_Left_Motor = 3,
-		Back_Right_Motor = 4,
-		Back_Left_Motor = 5,
-		Bunny_Pick_Up_Motor = 6;
+		Front_Right_Motor = 2,
+		Front_Left_Motor = 7,
+		Middle_Right_Motor = 8,
+		Middle_Left_Motor = 4,
+		Back_Right_Motor = 6,
+		Back_Left_Motor = 3,
+		Bunny_Pick_Up_Motor = 5;
 };
 #endif  // ROBOTMAP_H

@@ -14,12 +14,12 @@ private:
 		APPROACH
 	} m_alignMode;
 
-	const float m_SENSITIVITY_X = 1.0f;
+	const float m_SENSITIVITY_X = 2.0f;
 	const float m_SENSITIVITY_Y = 0.5f;
 	const float m_SENSITIVITY_ALIGN = 4.0f;
-	const float m_MAX_THROTTLE = 0.3f;//0.25f;//0.4f;
+	const float m_MAX_THROTTLE = 1.0f;//0.25f;//0.4f;
 	const float m_MIN_THROTTLE = 0.175f;//0.15f;//0.2f;
-	const float m_MAX_ROTATION = 0.175f;
+	const float m_MAX_ROTATION = 0.790f;
 	const float m_TARGET_LOST_TIMEOUT = 6;
 	const int m_UPDATE_RATE = 50;
 

@@ -1,6 +1,7 @@
 #include "BucketAuto.h"
 #include "AutoDrive.h"
 #include "AlignWithTape.h"
+#include "DelaySeconds.h"
 
 BucketAuto::BucketAuto() {
 	/*
@@ -21,6 +22,8 @@ BucketAuto::BucketAuto() {
 	 a CommandGroup containing them would require both the chassis and the
 	 arm.
 	 */
+	AddSequential(new AutoDrive(1,-.2));
+	AddSequential(new DelaySeconds(1.4));
 	AddSequential(new AlignWithTape(0.0, 2.5, AlignWithTape::AlignDirection::NONE));
-	AddSequential(new AutoDrive(1,0));
+	AddSequential(new AutoDrive(0,0));
 }

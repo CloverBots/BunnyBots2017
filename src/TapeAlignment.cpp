@@ -50,9 +50,9 @@ void TapeAlignment::Process(cv::Mat source0){
 	double filterContoursMinArea = 0;//10.0;  // default Double
 	double filterContoursMinPerimeter = 0.0;  // default Double
 	double filterContoursMinWidth = 0;//5.0;  // default Double
-	double filterContoursMaxWidth = 1000.0;  // default Double
+	double filterContoursMaxWidth = 2000.0;  // default Double
 	double filterContoursMinHeight = 0;//25.0;  // default Double
-	double filterContoursMaxHeight = 1000.0;  // default Double
+	double filterContoursMaxHeight = 2000.0;  // default Double
 	double filterContoursSolidity[] = {0.0, 100.0};
 	double filterContoursMaxVertices = 1000000.0;  // default Double
 	double filterContoursMinVertices = 0.0;  // default Double

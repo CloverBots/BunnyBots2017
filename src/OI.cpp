@@ -8,8 +8,10 @@ OI::OI() {
 	pOperatorStick = new Joystick(1);
 	AButton = new JoystickButton(pOperatorStick, 1);
 	BButton = new JoystickButton(pOperatorStick, 2);
-	AButton->WhenPressed(new PickUp(1));
-	BButton->WhenPressed(new PickUp(-1));
+	BButton->WhenPressed(new PickUp(.40));
+	AButton->WhenPressed(new PickUp(-.275));
+	AButton->WhenReleased(new PickUp(0));
+	BButton->WhenReleased(new PickUp(0));
 
 	m_pNetworkTable = NetworkTable::GetTable("GRIP/tape");
 

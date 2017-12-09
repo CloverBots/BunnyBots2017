@@ -13,8 +13,7 @@ private:
 	Talon* Middle_Left_Motor;
 	Talon* Back_Right_Motor;
 	Talon* Back_Left_Motor;
-	DoubleSolenoid* Left_Gear_Box;
-	DoubleSolenoid* Right_Gear_Box;
+	DoubleSolenoid* Gear_Box;
 
 public:
 	DriveSubsystem();

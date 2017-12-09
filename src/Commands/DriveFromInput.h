@@ -3,9 +3,9 @@
 
 #include "../CommandBase.h"
 
-class Drive : public CommandBase {
+class DriveFromInput : public CommandBase {
 public:
-	Drive();
+	DriveFromInput();
 	void Initialize();
 	void Execute();
 	bool IsFinished();

@@ -16,7 +16,7 @@ void AutoDrive::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void AutoDrive::Execute() {
-	Joystick* pDriveStick = CommandBase::oi->GetDriveStick();
+	//Joystick* pDriveStick = CommandBase::oi->GetDriveStick();
 	CommandBase::driveSubsystem->Drive(m_speed, m_turn);
 }
 
@@ -27,8 +27,8 @@ bool AutoDrive::IsFinished() {
 
 // Called once after isFinished returns true
 void AutoDrive::End() {
-	CommandBase::driveSubsystem->Drive(0,0);
-	CommandBase::driveSubsystem->Shift(DoubleSolenoid::Value::kOff);
+	//CommandBase::driveSubsystem->Drive(0,0);
+	//CommandBase::driveSubsystem->Shift(DoubleSolenoid::Value::kOff);
 }
 
 // Called when another command which requires one or more of the same
